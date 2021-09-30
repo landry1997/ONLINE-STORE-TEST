@@ -12,16 +12,12 @@
 </head>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
-    <!--begin::Main-->
-    <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
-        <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
             @include('layouts.sidebar')
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 @include('layouts.header')
                 <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Toolbar-->
                     <div class="toolbar" id="kt_toolbar">
                         <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
                             <!--begin::Info-->
