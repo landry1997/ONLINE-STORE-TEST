@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--begin::Head-->
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <title>{{__('Liste des cours') }} || Adisa</title>
+    @include('layouts.meta')
+    <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body" class="position-relative header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
+    <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="page d-flex flex-row flex-column-fluid">
+            <!--begin::Aside-->
+            @include('layouts.sidebar')
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+                <!--begin::Header-->
+                @include('layouts.header')
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+                    <!--begin::Toolbar-->
+                    <div class="toolbar" id="kt_toolbar">
+                        <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+                            <!--begin::Info-->
+                            <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                                <!--begin::Title-->
+                                <h1 class="text-dark fw-bolder my-1 fs-2">{{__('Liste des cours') }}</h1>
+                                <!--end::Title-->
+                                <!--begin::Breadcrumb-->
+                                <ul class="breadcrumb fw-bold fs-base my-1">
+                                    <li class="breadcrumb-item text-muted">
+                                        <a href="/home" class="text-muted text-hover-primary">{{__('Acceuil') }}</a>
+                                    </li>
+                                    <li class="breadcrumb-item text-muted">{{ __('Piliers et cours') }}</li>
+                                    <li class="breadcrumb-item text-muted">{{__('Liste des cours') }}</li>
+                                </ul>
+                                <!--end::Breadcrumb-->
+                            </div>
+                            <!--end::Info-->
+                            <!--begin::Actions-->
+                            <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
+                                <a href="{{ route('cour.create') }}" class="btn bg-body btn-color-gray-600 btn-active-primary me-4">{{__('Créer un nouveau cours') }}</a>
+                                <a href="{{ route('pilier.create') }}" class="btn bg-body btn-color-gray-600 btn-active-primary me-4">{{__('Créer un nouveau pilier') }}</a>
+                            </div>
+                            <!--end::Actions-->
+                        </div>
+                    </div>
+                    <!--end::Toolbar-->
+                    <!--begin::Post-->
+                    <div class="post fs-6 d-flex flex-column-fluid" id="kt_post">
+                        <!--begin::Container-->
+                        <div class="container-xxl">
+                            <!--begin::Card-->
+                            <div class="card">
+                                <!--begin:Card header-->
+                                <div class="card-header">
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <!--begin::Select-->
+                                        <div class="me-6 my-1">
+                                            <select id="kt_filter_year" name="year" data-control="select2" data-hide-search="true" class="w-125px form-select form-select-sm form-select-solid">
+                                                <option value="All" selected="selected">{{__('Tout') }}</option>
+                                                <option value="thisyear">{{__('Cette année') }}</option>
+                                                <option value="thismonth">{{__('Ce mois') }}</option>
+                                                <option value="lastmonth">{{__('Mois dernier') }}</option>
+                                                <option value="last90days">{{__('il ya 90 jours') }}</option>
+                                            </select>
+                                        </div>
+                                        <!--end::Select-->
+                                        <!--begin::Search-->
+                                        <div class="position-relative w-175px my-1">
+                                            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                            <span class="svg-icon svg-icon-3 position-absolute ms-7 top-50 translate-middle">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+                                                </svg>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                            <input type="text" id="kt_filter_search" class="form-control form-control-sm form-control-solid ps-12" placeholder="Search Order" />
+                                        </div>
+                                        <!--end::Search-->
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end:Card header-->
+                                <!--begin:Card body-->
+                                <div class="card-body">
+                                    <!--begin::Table-->
+                                    <table id="kt_orders_classic" class="table table-row-bordered table-row-dashed g-3 gs-0 align-middle">
+                                        <thead class="fs-7 fw-boldest text-gray-400 text-uppercase">
+                                            <tr>
+                                                <th class="min-w-200px">{{__('Nom') }}</th>
+                                                <th class="min-w-200px">{{__('Description') }}</th>
+                                                <th class="min-w-200px">{{__('Statut') }}</th>
+                                                <th class="min-w-150px text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fs-6 fw-boldest">
+
+                                            @foreach ($cours as $cour)
+                                            <tr>
+                                                <td>
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex">
+                                                        <!--begin::Image-->
+                                                        <div class="symbol symbol-75px me-6 bg-light">
+                                                            <img src="{{asset($cour->image)}}" alt="{{$cour->nom}}" />
+                                                        </div>
+                                                        <!--end::Image-->
+                                                        <!--begin::Info-->
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <a href="{{ route('coursedit', $cour->id) }}" class="mb-1 text-gray-800 text-hover-primary">{{ $cour->nom}}</a>
+                                                            <a href="{{ route('coursedit', $cour->id) }}" class="mb-1 text-gray-800 text-hover-primary">{{ $cour->type}}</a>
+                                                            <div class="fw-bold text-gray-400">par:{{ $cour->createur}}</div>
+                                                        </div>
+                                                        <!--end::Info-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </td>
+                                                <td>{{ $cour->description}}</td>
+                                                <td>
+                                                    @if($cour->statut == "actif")
+                                                    <span class="badge badge-light-info fw-boldest">{{ $cour->statut}}</span>
+                                                    @else
+                                                    <span class="badge badge-light-danger fw-boldest">{{ $cour->statut}}</span>
+                                                    @endif
+                                                </td>
+                                                <td class="text-end">
+                                                    <!-- Button trigger modal -->
+                                                    <a href="{{ route('coursview', $cour->id) }}" class="btn btn-light btn-sm">{{__('Voir') }}</a>
+                                                    <a href="{{ route('coursedit', $cour->id) }}" class="btn btn-light btn-sm">{{__('Editer') }}</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <!--end::Table-->
+
+                                    <!-- Modal show cour infos-->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!--end:Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Post-->
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                @include('layouts.footer')
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Root-->
+    <!--begin::Drawers-->
+
+    <!--begin::Chat drawer-->
+    <div id="kt_drawer_chat" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle" data-kt-drawer-close="#kt_drawer_chat_close">
+        <!--begin::Messenger-->
+        <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+            <!--begin::Card header-->
+            <div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
+                <!--begin::Title-->
+                <div class="card-title">
+                    <!--begin::User-->
+                    <div class="d-flex justify-content-center flex-column me-3">
+                        <a href="#" class="fs-4 fw-bolder text-gray-900 text-hover-primary me-1 mb-2 lh-1">Brian Cox</a>
+                        <!--begin::Info-->
+                        <div class="mb-0 lh-1">
+                            <span class="badge badge-success badge-circle w-10px h-10px me-1"></span>
+                            <span class="fs-7 fw-bold text-muted">Active</span>
+                        </div>
+                        <!--end::Info-->
+                    </div>
+                    <!--end::User-->
+                </div>
+                <!--end::Title-->
+            </div>
+            <!--end::Card header-->
+            <!--begin::Card footer-->
+            <div class="card-footer pt-4" id="kt_drawer_chat_messenger_footer">
+                <!--begin::Input-->
+                <textarea class="form-control form-control-flush mb-3" rows="1" data-kt-element="input" placeholder="Type a message"></textarea>
+                <!--end::Input-->
+                <!--begin:Toolbar-->
+                <div class="d-flex flex-stack">
+                    <!--begin::Actions-->
+                    <div class="d-flex align-items-center me-2">
+                        <button class="btn btn-sm btn-icon btn-active-light-primary me-1" type="button" data-bs-toggle="tooltip" title="Coming soon">
+                            <i class="bi bi-paperclip fs-3"></i>
+                        </button>
+                        <button class="btn btn-sm btn-icon btn-active-light-primary me-1" type="button" data-bs-toggle="tooltip" title="Coming soon">
+                            <i class="bi bi-upload fs-3"></i>
+                        </button>
+                    </div>
+                    <!--end::Actions-->
+                    <!--begin::Send-->
+                    <button class="btn btn-primary" type="button" data-kt-element="send">Send</button>
+                    <!--end::Send-->
+                </div>
+                <!--end::Toolbar-->
+            </div>
+            <!--end::Card footer-->
+        </div>
+        <!--end::Messenger-->
+    </div>
+    <!--end::Chat drawer-->
+    <!--end::Drawers-->
+    <!--begin::Modals-->
+    <!--end::Modals-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+                <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+            </svg>
+        </span>
+        <!--end::Svg Icon-->
+    </div>
+    <!--end::Scrolltop-->
+    <!--end::Main-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> --}}
+    <!--begin::Javascript-->
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="../../assets/plugins/global/plugins.bundle.js"></script>
+    <script src="../../assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Page Vendors Javascript(used by this page)-->
+    <script src="../../assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Page Vendors Javascript-->
+    <!--begin::Page Custom Javascript(used by this page)-->
+    <script src="../../assets/js/custom/account/orders/classic.js"></script>
+    <script src="../../assets/js/custom/widgets.js"></script>
+    <script src="../../assets/js/custom/apps/chat/chat.js"></script>
+    <script src="../../assets/js/custom/modals/create-project.bundle.js"></script>
+    <script src="../../assets/js/custom/modals/upgrade-plan.js"></script>
+    <script src="../../assets/js/custom/intro.js"></script>
+    <!--end::Page Custom Javascript-->
+    <!--end::Javascript-->
+    <!--Begin::Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!--End::Google Tag Manager (noscript) -->
+</body>
+<!--end::Body-->
+
+<!-- Mirrored from preview.keenthemes.com/craft/account/orders/classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Sep 2021 11:06:08 GMT -->
+
+</html>
