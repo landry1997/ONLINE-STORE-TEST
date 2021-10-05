@@ -205,6 +205,7 @@
                                                 <!--begin::Name=-->
                                                 <td>
                                                     <a href="view.html" class="text-gray-800 text-hover-primary mb-1">{{ $article->titre }}</a>
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/.com&display=popup"> share this </a>
                                                 </td>
                                                 <!--end::Name=-->
                                                 <!--begin::Email=-->
@@ -234,9 +235,6 @@
                                                         <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
                                                             <a href="{{ route('blog.show', $article->id) }}" class="menu-link px-3">View</a>
-                                                        </div>
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
                                                         </div>
                                                     </div>
                                                 </td>

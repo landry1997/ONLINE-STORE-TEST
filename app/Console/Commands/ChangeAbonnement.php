@@ -14,7 +14,7 @@ class ChangeAbonnement extends Command
      *
      * @var string
      */
-    protected $description = 'Changes le abonnement du user en abonne.';
+    protected $description = 'Changes le abonnement du user en abonnement';
     protected $signature = 'users:abonnement';
 
     /**
@@ -35,9 +35,8 @@ class ChangeAbonnement extends Command
     public function handle()
     {
 
-        $prix=DB::table('user_abonnents')->where('dateFin',Carbon::now())->get()[0];
-            DB::table('users')
-            ->where('id',$prix->user)
-            ->update(['abonnement'=>'désaboné']);
+        $prix = DB::table('user_abonnents')->where('dateFin',Carbon::now())->get()[0];
+        \Log::info("Cron is working fine!");
+        \Log::info($prix);
     }
 }

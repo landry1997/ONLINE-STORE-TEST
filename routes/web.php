@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/quiz', function () {
+    return view('quiz');
+});
+
 
 
 Auth::routes();
@@ -34,6 +38,8 @@ Route::middleware(['auth', 'throttle:60,3'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
     Route::get('list-role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-list');
+
+    Route::get('button-button', [App\Http\Controllers\PageController::class, 'index'])->name('button-list');
 
     Route::get('liste-des-articles', [App\Http\Controllers\BlogController::class, 'index'])->name('blog-list');
     Route::post('articles-store', [App\Http\Controllers\BlogController::class, 'store'])->name('blog.store');

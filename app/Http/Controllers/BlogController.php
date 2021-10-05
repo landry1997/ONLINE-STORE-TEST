@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $articles = Blog::with(['user','categories'])->orderBy('id', 'desc')->get();
@@ -20,11 +16,24 @@ class BlogController extends Controller
         return view('apps.blog.list', compact(['articles']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexFiltreBlog()
+    {
+            $blog =  DB::table('blogs')->where('statut', 'invalide')->orderBy('id','desc');
+            $blog2 = DB::table('blogs')->where('statut', 'valide')->orderBy('id','desc');
+            $blog5 = DB::table('blogs')->where('created_at', date('y-m-d'))->orderBy('id','desc');
+            $blog6 = DB::table('blogs')->where('created_at','>', date('Y-m-d', strtotime("-30 days")))->orderBy('id','desc');
+            $blog7 = DB::table('blogs')->where('created_at','>', date('Y-m-d', strtotime("-91 days")))->orderBy('id','desc');
+            $blog8 = DB::table('blogs')->where('created_at','>', date('Y-m-d', strtotime("-150 days")))->orderBy('id','desc');
+
+        return view('apps.blog.list')
+        ->with(compact('blog'))
+        ->with(compact('blog2'))
+        ->with(compact('blog5'))
+        ->with(compact('blog6'))
+        ->with(compact('blog7'))
+        ->with(compact('users8'))
+        ;
+    }
     public function create()
     {
         //

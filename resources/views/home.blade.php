@@ -7,6 +7,15 @@
 		@include('layouts.meta')
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+        <style>
+            .bullet-dot{
+                display: none;
+                }
+
+                .bullet-dot:hover{
+                display: inline-block;
+                }
+        </style>
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -921,7 +930,7 @@
 														<div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
 															<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Cup &amp; Green</a>
 															<span class="text-gray-400 fw-bold fs-7 my-1">Study highway types</span>
-															<span class="text-gray-400 fw-bold fs-7">By: 
+															<span class="text-gray-400 fw-bold fs-7">By:
 															<a href="#" class="text-success fw-bold">CoreAd</a></span>
 														</div>
 														<!--end::Title-->
@@ -948,7 +957,7 @@
 														<div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
 															<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Yellow Hearts</a>
 															<span class="text-gray-400 fw-bold fs-7 my-1">Study highway types</span>
-															<span class="text-gray-400 fw-bold fs-7">By: 
+															<span class="text-gray-400 fw-bold fs-7">By:
 															<a href="#" class="text-success fw-bold">KeenThemes</a></span>
 														</div>
 														<!--end::Title-->
@@ -975,7 +984,7 @@
 														<div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
 															<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Nike &amp; Blue</a>
 															<span class="text-gray-400 fw-bold fs-7 my-1">Study highway types</span>
-															<span class="text-gray-400 fw-bold fs-7">By: 
+															<span class="text-gray-400 fw-bold fs-7">By:
 															<a href="#" class="text-success fw-bold">Invision Inc.</a></span>
 														</div>
 														<!--end::Title-->
@@ -1002,7 +1011,7 @@
 														<div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3">
 															<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Red Boots</a>
 															<span class="text-gray-400 fw-bold fs-7 my-1">Study highway types</span>
-															<span class="text-gray-400 fw-bold fs-7">By: 
+															<span class="text-gray-400 fw-bold fs-7">By:
 															<a href="#" class="text-success fw-bold">Figma Studio</a></span>
 														</div>
 														<!--end::Title-->
@@ -1371,7 +1380,7 @@
 															<!--begin::Title-->
 															<div class="pe-3">
 																<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Developer Library Added</a>
-																<div class="text-gray-400 fw-bold mt-1">New 
+																<div class="text-gray-400 fw-bold mt-1">New
 																<a href="#" class="link-success p-1">Author Account</a>with Affiliate</div>
 															</div>
 															<!--end::Title-->
@@ -1403,8 +1412,8 @@
 															<!--begin::Title-->
 															<div class="pe-3">
 																<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">Payments Methods Added</a>
-																<div class="text-gray-400 fw-bold mt-1">Added 
-																<span class="text-gray-700 pe-1">Payoneer</span>&amp; 
+																<div class="text-gray-400 fw-bold mt-1">Added
+																<span class="text-gray-700 pe-1">Payoneer</span>&amp;
 																<span class="text-gray-700">Transferwise</span></div>
 															</div>
 															<!--end::Title-->
@@ -1469,7 +1478,7 @@
 															<!--begin::Title-->
 															<div class="pr-3">
 																<a href="#" class="fs-5 text-gray-800 text-hover-success fw-boldest">New User Library Added</a>
-																<div class="fs-7 text-gray-400 fw-bold mt-2">New 
+																<div class="fs-7 text-gray-400 fw-bold mt-2">New
 																<a href="#" class="link-success pe-1">Author Account</a>created</div>
 															</div>
 															<!--end::Title-->
@@ -2198,7 +2207,7 @@
 																<!--begin::Wrapper-->
 																<div>
 																	<button type="button" class="btn btn-lg btn-success" data-kt-stepper-action="submit">
-																		<span class="indicator-label">Submit 
+																		<span class="indicator-label">Submit
 																		<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 																		<span class="svg-icon svg-icon-3 ms-2 me-0">
 																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -2207,10 +2216,10 @@
 																			</svg>
 																		</span>
 																		<!--end::Svg Icon--></span>
-																		<span class="indicator-progress">Please wait... 
+																		<span class="indicator-progress">Please wait...
 																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																	</button>
-																	<button type="button" class="btn btn-lg btn-success" data-kt-stepper-action="next">Continue 
+																	<button type="button" class="btn btn-lg btn-success" data-kt-stepper-action="next">Continue
 																	<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 																	<span class="svg-icon svg-icon-3 ms-1 me-0">
 																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -2264,7 +2273,7 @@
 												<!--begin::Heading-->
 												<div class="mb-10 mb-lg-10 text-center">
 													<h3 class="fw-boldest text-dark fs-2x">Upgrade a Plan</h3>
-													<div class="text-gray-400 fw-bold fs-3">If you need more info, please check 
+													<div class="text-gray-400 fw-bold fs-3">If you need more info, please check
 													<a href="#" class="link-success">Pricing Guidelines</a></div>
 												</div>
 												<!--end::Heading-->
@@ -2303,7 +2312,7 @@
 																	<div class="ms-5">
 																		<span class="mb-2">$</span>
 																		<span class="fs-3x fw-boldest" data-kt-plan-price-month="39" data-kt-plan-price-annual="399">39</span>
-																		<span class="fs-7 opacity-50">/ 
+																		<span class="fs-7 opacity-50">/
 																		<span data-kt-element="period">Mon</span></span>
 																	</div>
 																	<!--end::Price-->
@@ -2330,7 +2339,7 @@
 																	<div class="ms-5">
 																		<span class="mb-2">$</span>
 																		<span class="fs-3x fw-boldest" data-kt-plan-price-month="339" data-kt-plan-price-annual="3399">339</span>
-																		<span class="fs-7 opacity-50">/ 
+																		<span class="fs-7 opacity-50">/
 																		<span data-kt-element="period">Mon</span></span>
 																	</div>
 																	<!--end::Price-->
@@ -2347,7 +2356,7 @@
 																		<!--end::Radio-->
 																		<!--begin::Info-->
 																		<div class="flex-grow-1">
-																			<h2 class="d-flex align-items-center fs-2 fw-boldest flex-wrap">Enterprise 
+																			<h2 class="d-flex align-items-center fs-2 fw-boldest flex-wrap">Enterprise
 																			<span class="badge badge-light-success ms-2 fs-7">Most popular</span></h2>
 																			<div class="fw-bold opacity-50">Best value for 1000+ team</div>
 																		</div>
@@ -2358,7 +2367,7 @@
 																	<div class="ms-5">
 																		<span class="mb-2">$</span>
 																		<span class="fs-3x fw-boldest" data-kt-plan-price-month="999" data-kt-plan-price-annual="9999">999</span>
-																		<span class="fs-7 opacity-50">/ 
+																		<span class="fs-7 opacity-50">/
 																		<span data-kt-element="period">Mon</span></span>
 																	</div>
 																	<!--end::Price-->
@@ -3111,8 +3120,8 @@
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-bold mb-2">Task 
-										<a href="#" class="text-success fw-bolder me-1">#45890</a>merged with 
+										<div class="fs-5 fw-bold mb-2">Task
+										<a href="#" class="text-success fw-bolder me-1">#45890</a>merged with
 										<a href="#" class="text-success fw-bolder me-1">#45890</a>in “Ads Pro Admin Dashboard project:</div>
 										<!--end::Title-->
 										<!--begin::Description-->
@@ -3249,7 +3258,7 @@
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-bold mb-2">New case 
+										<div class="fs-5 fw-bold mb-2">New case
 										<a href="#" class="text-success fw-bolder me-1">#67890</a>is assigned to you in Multi-platform Database Design project</div>
 										<!--end::Title-->
 										<!--begin::Description-->
@@ -3372,7 +3381,7 @@
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-bold mb-2">New order 
+										<div class="fs-5 fw-bold mb-2">New order
 										<a href="#" class="text-success fw-bolder me-1">#67890</a>is placed for Workshow Planning &amp; Budget Estimation</div>
 										<!--end::Title-->
 										<!--begin::Description-->
@@ -3399,7 +3408,7 @@
 				<!--end::Body-->
 				<!--begin::Footer-->
 				<div class="card-footer py-5 text-center" id="kt_activities_footer">
-					<a href="pages/profile/activity.html" class="btn bg-body text-success">View All Activities 
+					<a href="pages/profile/activity.html" class="btn bg-body text-success">View All Activities
 					<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 					<span class="svg-icon svg-icon-3 svg-icon-success">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -3455,7 +3464,7 @@
 								<!--end::Menu item-->
 								<!--begin::Menu item-->
 								<div class="menu-item px-3">
-									<a href="#" class="menu-link flex-stack px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">Invite Contacts 
+									<a href="#" class="menu-link flex-stack px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">Invite Contacts
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a contact email to send an invitation"></i></a>
 								</div>
 								<!--end::Menu item-->
@@ -3639,7 +3648,7 @@
 								</div>
 								<!--end::User-->
 								<!--begin::Text-->
-								<div class="p-5 rounded bg-light-info text-dark fw-bold mw-lg-400px text-start" data-kt-element="message-text">You can unwatch this repository immediately by clicking here: 
+								<div class="p-5 rounded bg-light-info text-dark fw-bold mw-lg-400px text-start" data-kt-element="message-text">You can unwatch this repository immediately by clicking here:
 								<a href="https://keenthemes.com/">Keenthemes.com</a></div>
 								<!--end::Text-->
 							</div>
@@ -3866,7 +3875,7 @@
 												<h1 class="fw-boldest text-dark">Project Type</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check out 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check out
 												<a href="#" class="link-success fw-bolder">FAQ Page</a></div>
 												<!--end::Description-->
 											</div>
@@ -3937,7 +3946,7 @@
 											<div class="d-flex justify-content-end">
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="type-next">
 													<span class="indicator-label">Project Settings</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -3956,7 +3965,7 @@
 												<h1 class="fw-boldest text-dark">Project Settings</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check
 												<a href="#" class="link-success">Project Guidelines</a></div>
 												<!--end::Description-->
 											</div>
@@ -4093,7 +4102,7 @@
 												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="settings-previous">Project Type</button>
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="settings-next">
 													<span class="indicator-label">Budget</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -4112,7 +4121,7 @@
 												<h1 class="fw-boldest text-dark">Budget</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check
 												<a href="#" class="link-success">Project Guidelines</a></div>
 												<!--end::Description-->
 											</div>
@@ -4233,7 +4242,7 @@
 												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="budget-previous">Project Settings</button>
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="budget-next">
 													<span class="indicator-label">Build Team</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -4252,7 +4261,7 @@
 												<h1 class="fw-boldest text-dark">Build a Team</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check
 												<a href="#" class="link-success">Project Guidelines</a></div>
 												<!--end::Description-->
 											</div>
@@ -4774,7 +4783,7 @@
 												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="team-previous">Budget</button>
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="team-next">
 													<span class="indicator-label">Set Target</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -4793,7 +4802,7 @@
 												<h1 class="fw-boldest text-dark">Set First Target</h1>
 												<!--end::Title-->
 												<!--begin::Title-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check
 												<a href="#" class="link-success">Project Guidelines</a></div>
 												<!--end::Title-->
 											</div>
@@ -4917,7 +4926,7 @@
 												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="targets-previous">Build a Team</button>
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="targets-next">
 													<span class="indicator-label">Upload Files</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -4936,7 +4945,7 @@
 												<h1 class="fw-boldest text-dark">Upload Files</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check 
+												<div class="text-gray-400 fw-bold fs-4">If you need more info, please check
 												<a href="#" class="link-success">Project Guidelines</a></div>
 												<!--end::Description-->
 											</div>
@@ -5139,7 +5148,7 @@
 												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="files-previous">Set First Target</button>
 												<button type="button" class="btn btn-lg btn-success" data-kt-element="files-next">
 													<span class="indicator-label">Complete</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
@@ -5220,7 +5229,7 @@
 							<div class="fs-2x fw-boldest mb-1">Invite a Friend</div>
 							<!--end::Title-->
 							<!--begin::Description-->
-							<div class="text-gray-400 fw-bold fs-3">If you need more info, please check out 
+							<div class="text-gray-400 fw-bold fs-3">If you need more info, please check out
 							<a href="#" class="link-success fw-bolder">FAQ Page</a></div>
 							<!--end::Description-->
 						</div>
@@ -5778,13 +5787,11 @@
 		<script src="assets/js/custom/modals/create-project.bundle.js"></script>
 		<script src="assets/js/custom/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/intro.js"></script>
-		<!--end::Page Custom Javascript-->
-		<!--end::Javascript-->
-		<!--Begin::Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!--End::Google Tag Manager (noscript) -->
+        <script>
+            $('.menu-item').hover(function() {
+            $('.bullet-dot').show();
+        });
+        </script>
 	</body>
 	<!--end::Body-->
 

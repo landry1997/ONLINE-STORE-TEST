@@ -13,12 +13,12 @@
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-500px positon-xl-relative">
-                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-500px scroll-y">
+                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-500px">
                     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-15">
-                        <a href="#" class="py-9 pt-lg-15">
-                            <img alt="Logo" src="{{asset('logo.png')}}" class="h-100px" />
+                        <a href="#" class="py-9 pt-lg-20">
+                            <img alt="Logo" src="{{asset('logo.png')}}" class="h-200px" />
                         </a>
-                        <h1 class="fw-bolder text-primary fs-2qx pb-5 pb-md-10">{{ __('Bienvenue sur Adisa') }}</h1>
+                        <h1 class="fw-bolder text-primary fs-2qx pb-5 pb-md-10">{{ __('Bienvenue sur ADISA by PLF') }}</h1>
                         <p class="fw-bold fs-2 text-primary">{{ __('Planifier la gestion de la plate-forme') }}
                             <br />{{ __('de e-learning') }}</p>
                     </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="d-flex flex-column flex-lg-row-fluid py-15">
                 <div class="d-flex flex-center flex-column flex-column-fluid">
-                    <div class="w-lg-600px p-12 p-lg-15 mx-auto">
+                    <div class="w-lg-500px p-12 p-lg-15 mx-auto">
                         <form class="form w-100" id="kt_sign_in_form" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="text-center mb-10">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="fv-row mb-10">
                                 <label class="form-label fs-6 fw-bolder text-dark">{{ __('Nom') }}</label>
-                                <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror" placeholder="{{ __('Entrez votre nom') }}">
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror" placeholder="{{ __('Entrez votre nom') }}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -45,7 +45,6 @@
                             <div class="fv-row mb-10">
                                 <div class="d-flex flex-stack mb-2">
                                     <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('Mot de passe') }}</label>
-                                    <a href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">{{ __('Mot de passe oublié') }} ?</a>
                                 </div>
                                 <input class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror" placeholder="{{ __('Mot de passe') }}" id="password" value="{{ old('password') }}" type="password" name="password" autocomplete="off" />
                                 @error('password')
@@ -61,9 +60,8 @@
                                     <span class="indicator-progress">{{ __('Veuillez patienter') }}...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
-                                <a href="#" class="btn btn-light-primary btn-lg fw-bolder my-2">
-                                    <img alt="Logo" src="../assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />{{ __('Connexion avec Google') }}</a>
-                            </div>
+                                 </div>
+                                 <a href="{{ route('password.request') }}" style="margin-left:10rem; margin-top:10rem;" class="link-primary fs-6 fw-bolder text-center">{{ __('Mot de passe oublié') }} ?</a>
                         </form>
                     </div>
                 </div>

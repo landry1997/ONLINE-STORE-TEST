@@ -46,23 +46,6 @@
             position: relative;
         }
     </style>
-    <!--Begin::Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&amp;l=' + l : '';
-            j.async = true;
-            j.src = '../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5FS8GGP');
-    </script>
-    <!--End::Google Tag Manager -->
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -114,7 +97,7 @@
                             <div class="card">
                                 <div class="card-body pt-9 pb-0">
                                     <!--begin::Details-->
-                                    <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
+                                    <div class="d-flex flex-wrap flex-sm-nowrap mb-6" style="justify-content: center;">
                                         <!--begin::Image-->
 
                                         <!--end::Details-->
@@ -122,7 +105,7 @@
                                         <!--begin::Nav wrapper-->
                                         <div class="d-flex overflow-auto">
                                             <!--begin::Nav links-->
-                                            <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-bold flex-nowrap h-55px">
+                                            <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-bold flex-nowrap h-55px" style="background-color: aliceblue; border-radius:2rem;">
                                                 <!--begin::Nav item-->
                                                 <li class="nav-item">
                                                     <a class="nav-link text-active-primary me-6" href="project.html">Overview</a>
@@ -164,52 +147,25 @@
                                         <!--end::Nav wrapper-->
                                     </div>
                                 </div>
-                                <!--end::Navbar-->
-                                <!--end::Modals-->
-
-                                <!--begin::Toolbar-->
-                                <div class="d-flex flex-wrap flex-stack my-5">
-                                    <!--begin::Title-->
-                                    <h2 class="fs-2 fw-bold my-2">{{ __('Ajouter des images') }}</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Controls-->
-                                </div>
-                                <!--end::Toolbar-->
                                 <!--begin::Row-->
                                 <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    {{-- <img src="https://res.cloudinary.com/mhmd/image/upload/v1564991372/image_pxlho1.svg" --}}
-                                    {{-- alt="" width="150" class="mb-4"> --}}
-<<<<<<< HEAD
-                                <div class="row py-4">
-                                    <div class="col-lg-6 mx-auto">
-                                        <!-- Upload image input-->
-                                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                                            <input id="upload" type="file" name="image" onchange="readURL(this);"
-                                                class="form-control border-0" required>
-                                            <label id="upload-label" for="image"
-                                                class="font-weight-light text-muted">{{ __('Choisir une image') }}</label>
-                                            <div class="input-group-append">
-                                                <label for="image" class="btn btn-light m-0 rounded-pill px-4"> <i
-                                                        class="fa fa-cloud-upload mr-2 text-muted"></i><small
-                                                        class="text-uppercase font-weight-bold text-muted">{{ __('Choisir une image') }}</small></label>
-=======
+
                                     <div class="row py-4">
-                                        <div class="col-lg-6 mx-auto">
+                                        <div class="col-lg-4 mx-auto">
                                             <!-- Upload image input-->
                                             <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                                                <input id="upload" type="file" name="image" onchange="readURL(this);" class="form-control border-0">
                                                 <label id="upload-label" for="image" class="font-weight-light text-muted">{{ __('Choisir une image') }}</label>
+                                                <input id="upload" type="file" name="image" onchange="readURL(this);" class="form-control border-0">
                                                 <div class="input-group-append">
-                                                    <label for="image" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">{{ __('Choisir une image') }}</small></label>
+                                                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">{{ __('Choisir une image') }}</small></label>
                                                 </div>
->>>>>>> 8f3246143595caa5ef6b3dab47a5a0731efa9138
                                             </div>
 
                                             <!-- Uploaded image area-->
                                             <p class="font-italic text-white text-center">The image uploaded will be
                                                 rendered inside the box below.</p>
-                                            <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                            <div class="image-area mt-3"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 
                                         </div>
                                     </div>
@@ -221,43 +177,24 @@
                                                 {{ __('Veuillez entrer le nom de l\'image') }}
                                             </div>
                                             @error('nom')
-                                            <span class="invalid-feedback alert alert-primary validate @error('nom') is-invalid @enderror" role="alert-danger " value="{{ old('nom_en') }}">
+                                            <span class="invalid-feedback alert alert-primary validate @error('nom') is-invalid @enderror" role="alert-danger " value="{{ old('nom') }}">
                                                 <p class="danger"> {{ $message }}</p>
                                             </span>
                                             @enderror
                                         </div>
-
-                                    </center>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="invalidCheck" required>
-                                            <label class="form-check-label" for="invalidCheck">
-                                                {{ __('Valider les informations entrées') }}
-                                            </label>
-                                            <div class="invalid-feedback">
-                                                {{ __('Vous devez d\'abord valider les informations') }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <center>
-                                        <button type="submit" class="btn btn-dark">{{ __('Ajouter') }}</button>
+                                        <button type="submit" class="btn btn-dark" style="margin-top: 2rem;">{{ __('Ajouter') }}
+                                            <span class="indicator-progress">{{ __('Veuillez patienter') }}...
+                                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                        </button>
                                     </center>
                                 </form>
                             </div>
-                            <!--end:Row-->
                         </div>
-                        <!--end::Container-->
                     </div>
-                    <!--end::Post-->
                 </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
                 @include('layouts.footer')
-                <!--end::Footer-->
             </div>
-            <!--end::Wrapper-->
         </div>
-        <!--end::Page-->
     </div>
     <script src="../../assets/plugins/global/plugins.bundle.js"></script>
     <script src="../../assets/js/scripts.bundle.js"></script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -13,25 +14,39 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    // public function __construct()
-    // {
-    //    $this->middleware('auth');
-    // }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     public function __construct()
+     {
+        $this->middleware('auth');
+     }
+
     public function index()
     {
         return view('apps/user-management/users/list')->with('users', User::orderBy('id', 'DESC')->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexFiltre()
+    {
+            $users =  DB::table('users')->where('statut', 'invalide')->orderBy('id','desc');
+            $users2 = DB::table('users')->where('statut', 'valide')->orderBy('id','desc');
+            $users3 = DB::table('users')->where('abonnement', 'désaboné')->orderBy('id','desc');
+            $users4 = DB::table('users')->where('abonnement', 'abonné')->orderBy('id','desc');
+            $users5 = DB::table('users')->where('created_at', date('y-m-d'))->orderBy('id','desc');
+            $users6 = DB::table('users')->where('created_at','>', date('Y-m-d', strtotime("-30 days")))->orderBy('id','desc');
+            $users7 = DB::table('users')->where('created_at','>', date('Y-m-d', strtotime("-91 days")))->orderBy('id','desc');
+            $users8 = DB::table('users')->where('created_at','>', date('Y-m-d', strtotime("-150 days")))->orderBy('id','desc');
+
+        return view('apps/user-management/users/list')
+        ->with(compact('users'))
+        ->with(compact('users2'))
+        ->with(compact('users3'))
+        ->with(compact('users4'))
+        ->with(compact('users5'))
+        ->with(compact('users6'))
+        ->with(compact('users7'))
+        ->with(compact('users8'))
+        ;
+    }
+
     public function create()
     {
         $user = User::all();
@@ -39,24 +54,17 @@ class UserController extends Controller
         return view('apps/user-management/users/create', compact(['user','roles']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'tel' => 'required', 
+            'tel' => 'required',
             'email' => 'required',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'paswword' => 'required',     
+            'paswword' => 'required',
         ]);
-        //dd($request);
-        
+
         $now = now();
         $url = "";
         if ($request->hasFile('photo')) {
@@ -87,7 +95,7 @@ class UserController extends Controller
      */
     public function show(User $user, Role $roles)
     {
-     
+
         $roles = Role::all();
         return view('apps/user-management/users/view', compact(['user','roles']));
     }
@@ -114,7 +122,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
 
-        
+
         $user->roles()->sync($request->roles);
         return view('apps/user-management/users/list')->with('users', User::orderBy('id', 'DESC')->get());
     }
@@ -151,7 +159,7 @@ class UserController extends Controller
         ]);
 
         $user = User::find($user->id);
-        $user->password = Hash::make($request->password); 
+        $user->password = Hash::make($request->password);
         $user->save();
         return view('apps/user-management/users/list')->with('users', User::orderBy('id', 'DESC')->get());
     }

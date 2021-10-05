@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\ChangeAbonnement::class,
+        //Commands\ChangeAbonnement::class,
+        Commands\DemoCron::class,
     ];
 
     /**
@@ -25,7 +26,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('requests:change-abonne-to-desabonne')->everyMinute();
+        $schedule->command('demo:cron')
+                 ->everyMinute();
+        //$schedule->command('requests:change-abonne-to-desabonne')->everyMinute();
     }
 
     /**

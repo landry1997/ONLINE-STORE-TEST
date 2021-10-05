@@ -115,12 +115,12 @@ class FichiersController extends Controller
     {
 
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
+            'image' => 'required|image|mimes:jpeg,png,PNG,jpg,gif,svg|max:8192',
             'nom' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
-            
+
             if ($request->file('image')->isValid()) {
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public', "image-" . time() . "." . $extension);

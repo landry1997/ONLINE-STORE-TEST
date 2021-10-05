@@ -16,7 +16,7 @@
                 <div class="text-center">
                     <h1 class="fw-bolder fs-2qx text-dark mb-7">{{__('Bienvenue sur Adisa BO') }}</h1>
                     <div class="fw-bold fs-2 text-gray-400 mb-15">{{__('Administrez plus facilement') }}</div>
-                    <a href="{{ route('login') }}" class="btn btn-lg btn-primary">{{__('Se connecter') }}</a>
+                    <a href="{{ route('login') }}" class="btn btn-lg btn-dark">{{__('Se connecter') }}</a>
                 </div>
             </div>
             <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-150px min-h-lg-250px" style="background-image: url(../../assets/media/illustrations/sigma-1/7.png)"></div>

@@ -1,43 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<!--begin::Head-->
+<html lang="fr">
 
 <head>
 	<title>{{__('Liste des images') }} || Adisa</title>
 	@include('layouts.meta')
-	<!--begin::Global Stylesheets Bundle(used by all pages)-->
 	<link href="../../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="../../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-	<!--end::Global Stylesheets Bundle-->
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
-	<!--begin::Main-->
-	<!--begin::Root-->
 	<div class="d-flex flex-column flex-root">
-		<!--begin::Page-->
 		<div class="page d-flex flex-row flex-column-fluid">
-			<!--begin::Aside-->
 			@include('layouts.sidebar')
-			<!--end::Aside-->
-			<!--begin::Wrapper-->
 			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-				<!--begin::Header-->
 				@include('layouts.header')
-				<!--end::Header-->
-				<!--begin::Content-->
 				<div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
-					<!--begin::Toolbar-->
 					<div class="toolbar" id="kt_toolbar">
 						<div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
-							<!--begin::Info-->
 							<div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
-								<!--begin::Title-->
 								<h1 class="text-dark fw-bolder my-1 fs-2">{{__('Liste des images') }}</h1>
-								<!--end::Title-->
-								<!--begin::Breadcrumb-->
 								@if ($message = Session::get('success'))
 								<div class="alert alert-success">
 									<p>{{ $message }}</p>
@@ -45,16 +26,13 @@
 								@endif
 								<ul class="breadcrumb fw-bold fs-base my-1">
 									<li class="breadcrumb-item text-muted">
-										<a href="../../index-2.html" class="text-muted text-hover-primary">{{__('Acceuil') }}</a>
+										<a href="/" class="text-muted text-hover-primary">{{__('Acceuil') }}</a>
 									</li>
 									<li class="breadcrumb-item text-muted">{{__('Médiathèque') }}</li>
 									<li class="breadcrumb-item text-muted">{{__('Type de médias') }}</li>
 									<li class="breadcrumb-item text-dark">{{__('Images') }}</li>
 								</ul>
-								<!--end::Breadcrumb-->
 							</div>
-							<!--end::Info-->
-							<!--begin::Actions-->
 							<div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
 								<a href="{{ route('image-create') }}" class="btn btn-primary">{{__('Ajouter une image') }}</a>
 								<a href="#" class="btn btn-primary">{{__('Ajouter une video') }}</a>
@@ -67,43 +45,28 @@
 							<div class="d-flex flex-wrap flex-stack my-5">
 								<h2 class="fs-2 fw-bold my-2">{{__('Liste des images') }}</h2>
 							</div>
-							<div class="row g-6 g-xl-9 mb-6 mb-xl-9">
-								<!--begin::Col-->
+							<div class="row g-2 g-xl-9 mb-2 mb-xl-9">
 								@foreach ($images as $image)
 								@if (empty($image))
 								<p class="text-dark">Aucune image disponible pour le moment</p>
 								@else
-								<div class="col-md-6 col-lg-6 col-xl-6">
-									<!--begin::Card-->
+								<div class="col-md-2 col-lg-2 col-xl-2">
 									<div class="card h-100">
-										<!--begin::Card body-->
 										<div class="card-body d-flex justify-content-center text-center flex-column p-8">
-											<!--begin::Name-->
 											<a href="#" class="text-gray-800 text-hover-primary d-flex flex-column">
-												<!--begin::Image-->
 												<div class="symbol symbol-0px mb-5">
-													<img alt="{{ $image->nom }}" src="{{asset($image->url)}}" class="h-70px" />
+													<img alt="{{ $image->nom }}" src="{{asset($image->url)}}" class="h-70px img-thumbnail" />
 												</div>
-												<!--end::Image-->
-												<!--begin::Title-->
 												<div class="fs-5 fw-bolder mb-2">{{ $image->nom }}</div>
-												<!--end::Title-->
 											</a>
-											<!--end::Name-->
-											<!--begin::Description-->
 											<div class="fs-7 fw-bold text-gray-400">{{__('Depuis le : ') }}{{ $image->created_at }}</div>
-											<!--end::Description-->
 											<a class="btn-btn-dark" href="{{url('/images/'.$image->id)}}">{{__('Voir le détail')  }}</a>
 											<a class="btn-btn-dark" href="{{url('/images/edit/'.$image->id)}}">{{__('Editer') }}</a>
 										</div>
-
-										<!--end::Card body-->
 									</div>
-									<!--end::Card-->
 								</div>
 								@endif
 								@endforeach
-								<!--end::Col-->
 							</div>
 						</div>
 					</div>

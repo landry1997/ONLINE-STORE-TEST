@@ -1,4 +1,3 @@
-				<!--begin::Aside-->
 				<div id="kt_aside" class="aside aside-default aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
 					<!--begin::Brand-->
 					<div class="aside-logo flex-column-auto pt-9 pb-5" id="kt_aside_logo">
@@ -81,7 +80,7 @@
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">{{__('Types de médias') }}</span>
+												<span class="menu-title">{{__('Galeries de medias') }}</span>
 												<span class="menu-arrow"></span>
 											</span>
 											<div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -111,10 +110,10 @@
 												</div>
 												<div class="menu-item">
 													<a class="menu-link" href="{{ route('video-list') }}">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">{{__('videos') }}</span>
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+														<span class="menu-title">{{__('Fichiers videos') }}</span>
 													</a>
 												</div>
 											</div>
@@ -124,7 +123,7 @@
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">{{__('Actions') }}</span>
+												<span class="menu-title">{{__('Ajouter') }}</span>
 												<span class="menu-arrow"></span>
 											</span>
 											<div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -133,7 +132,7 @@
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">{{__('Ajouter une image') }}</span>
+														<span class="menu-title">{{__('Images') }}</span>
 													</a>
 												</div>
 												<div class="menu-item">
@@ -141,7 +140,7 @@
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">{{__('Ajouter un Livres') }}</span>
+														<span class="menu-title">{{__('Livres') }}</span>
 													</a>
 												</div>
 												<div class="menu-item">
@@ -149,7 +148,7 @@
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">{{__('Ajouter un Fichier audio') }}</span>
+														<span class="menu-title">{{__('Fichiers audios') }}</span>
 													</a>
 												</div>
 												<div class="menu-item">
@@ -157,7 +156,7 @@
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">{{__('Ajouter une video') }}</span>
+														<span class="menu-title">{{__('Fichiers videos') }}</span>
 													</a>
 												</div>
 											</div>
@@ -554,3 +553,4 @@
 				<!--end::Aside menu-->
 				</div>
 				<!--end::Aside-->
+

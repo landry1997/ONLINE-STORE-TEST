@@ -12,7 +12,7 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        return view('apps.categories.list')->with('user', User::all())->with('categories', Categories::orderBy('id', 'DESC')->get()[0]);
+        return view('apps.categories.list')->with('user', User::all())->with('categories', Categories::orderBy('id', 'DESC')->get());
         //$categories = Categories::with(['user'])->orderBy('id', 'desc')->get()[0];
 
         //return view('apps.categories.list', compact(['categories']));
@@ -47,7 +47,7 @@ class CategoriesController extends Controller
 
 
 
-    public function update(Categories $categories, Request $request)
+    public function update(Categories $category, Request $request)
     {
         $request->validate([
 
@@ -56,14 +56,11 @@ class CategoriesController extends Controller
             'statut' => 'required',
         ]);
 
+        $category->titre = $request->titre;
+        $category->titreEn = $request->titreEn;
+        $category->statut = $request->statut;
 
-        $categories = Categories::find($categories->id);
-       dd($categories->titre);
-        $categories->titre = $request->titre;
-        $categories->titreEn = $request->titreEn;
-        $categories->statut = $request->statut;
-
-        $categories->save();
+        $category->save();
 
         return redirect(route('categories-list'));
     }

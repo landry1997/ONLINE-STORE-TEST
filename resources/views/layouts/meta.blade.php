@@ -5,7 +5,7 @@
 <meta property="og:locale" content="fr" />
 <meta property="og:type" content="{{__('Panel d\'administration') }}" />
 <meta property="og:title" content="{{__('ADISA BO - PANEL D\'ADMINISTRATION') }}" />
-<meta property="og:url" content="{{__('ajouter le lien') }}" />
+<meta property="og:url" content="{{__('https://adisa-test.smartcodegroup.com/login') }}" />
 <meta property="og:site_name" content="{{__('Adisa | Panel d\'administration') }}" />
-<link rel="canonical" href="https://preview.keenthemes.com/craft" />
+<link rel="canonical" href="https://adisa-test.smartcodegroup.com/login" />
 <link rel="shortcut icon" href="{{asset('icone.ico')}}" />

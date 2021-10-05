@@ -220,6 +220,8 @@
                                     </div>
                                     <center>
                                         <button type="submit" class="btn btn-dark">{{ __('Ajouter') }}</button>
+                                        <span class="indicator-progress">{{ __('Veuillez patienter') }}...
+                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                     </center>
                                 </form>
                             </div>

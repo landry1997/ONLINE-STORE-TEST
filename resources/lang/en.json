@@ -55,10 +55,31 @@
     "Détails de l'utilisateurs": "User details",
     "Selon ses roles cet utilisateur est soumis à une politique": "According to its roles this user is subject to a privacy policy",
     "et": "and",
+    "Deconnection": "Disconnection",
     "un contrat d'utilisation": "a contract of use",
     "Patientez": "Please wait",
     "Editer le nom": "Edit name",
     "Editer l'addresse mail": "Edit email address",
-    "Editer le mot de passe'": "Edit password"
+    "Editer le mot de passe": "Edit password",
+    "Livres": "Books",
+    "Fichiers audios": "Songs",
+    "Ajouter une image": "Add an image",
+    "Ajouter un Fichier audio'": "Add song",
+    "Ajouter une video": "Add video",
+    "Ajouter un livre": "Add book",
+    "Piliers": "Pillards",
+    "Cours": "Courses",
+    "Liste des piliers": "Pillards list",
+    "Liste des cours": "Courses list",
+    "Ajouter un piliers": "Add pillards",
+    "Ajouter un cours": "Add course",
+    "Liste des lieux": "Delivery zones list",
+    "Ajouter un lieu": "Add delivery zone",
+    "Gestion des Utilisateurs": "User Management",
+    "Utilisateurs": "Users",
+    "Liste des utilisateurs": "Users list",
+    "Ajouter des utilisateurs": "Add users"
+
+
 
 }

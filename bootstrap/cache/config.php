@@ -41,10 +41,11 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
+      22 => 'Jorenvh\\Share\\Providers\\ShareServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\EventServiceProvider',
+      26 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -85,6 +86,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'Share' => 'Jorenvh\\Share\\ShareFacade',
     ),
   ),
   'auth' => 
@@ -188,7 +190,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/framework/cache/data',
+        'path' => '/Users/smartcode/Downloads/ADISA-BO/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -359,12 +361,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/app',
+        'root' => '/Users/smartcode/Downloads/ADISA-BO/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/app/public',
+        'root' => '/Users/smartcode/Downloads/ADISA-BO/storage/app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -382,7 +384,7 @@
     ),
     'links' => 
     array (
-      '/Users/smartcode/Downloads/ADISA-BO-main/public/storage' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/app/public',
+      '/Users/smartcode/Downloads/ADISA-BO/public/storage' => '/Users/smartcode/Downloads/ADISA-BO/storage/app/public',
     ),
   ),
   'hashing' => 
@@ -416,13 +418,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/logs/laravel.log',
+        'path' => '/Users/smartcode/Downloads/ADISA-BO/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/logs/laravel.log',
+        'path' => '/Users/smartcode/Downloads/ADISA-BO/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -473,7 +475,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/logs/laravel.log',
+        'path' => '/Users/smartcode/Downloads/ADISA-BO/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -539,7 +541,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/Users/smartcode/Downloads/ADISA-BO-main/resources/views/vendor/mail',
+        0 => '/Users/smartcode/Downloads/ADISA-BO/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -640,7 +642,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/framework/sessions',
+    'files' => '/Users/smartcode/Downloads/ADISA-BO/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -660,9 +662,9 @@
   array (
     'paths' => 
     array (
-      0 => '/Users/smartcode/Downloads/ADISA-BO-main/resources/views',
+      0 => '/Users/smartcode/Downloads/ADISA-BO/resources/views',
     ),
-    'compiled' => '/Users/smartcode/Downloads/ADISA-BO-main/storage/framework/views',
+    'compiled' => '/Users/smartcode/Downloads/ADISA-BO/storage/framework/views',
   ),
   'flare' => 
   array (
@@ -703,6 +705,52 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
+  ),
+  'laravel-share' => 
+  array (
+    'services' => 
+    array (
+      'facebook' => 
+      array (
+        'uri' => 'https://www.facebook.com/sharer/sharer.php?u=',
+      ),
+      'twitter' => 
+      array (
+        'uri' => 'https://twitter.com/intent/tweet',
+        'text' => 'Default share text',
+      ),
+      'linkedin' => 
+      array (
+        'uri' => 'https://www.linkedin.com/sharing/share-offsite',
+        'extra' => 
+        array (
+          'mini' => 'true',
+        ),
+      ),
+      'whatsapp' => 
+      array (
+        'uri' => 'https://wa.me/?text=',
+        'extra' => 
+        array (
+          'mini' => 'true',
+        ),
+      ),
+      'pinterest' => 
+      array (
+        'uri' => 'https://pinterest.com/pin/create/button/?url=',
+      ),
+      'reddit' => 
+      array (
+        'uri' => 'https://www.reddit.com/submit',
+        'text' => 'Default share text',
+      ),
+      'telegram' => 
+      array (
+        'uri' => 'https://telegram.me/share/url',
+        'text' => 'Default share text',
+      ),
+    ),
+    'fontAwesomeVersion' => 5,
   ),
   'cashier' => 
   array (
