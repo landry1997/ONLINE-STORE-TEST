@@ -88,6 +88,16 @@ class User extends Authenticatable
         return $this->hasMany(Cours::class);
     }
 
+    public function questions()
+    {
+        return $this->hasMany(questions::class);
+    }
+
+    public function reponses()
+    {
+        return $this->hasMany(reponses::class);
+    }
+
     /**function to verified if user isAdmin */
     public function isAdmin(){
         return $this->roles()->where('name', 'admin')->first();

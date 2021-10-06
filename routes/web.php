@@ -41,6 +41,16 @@ Route::middleware(['auth', 'throttle:60,3'])->group(function () {
 
     Route::get('button-button', [App\Http\Controllers\PageController::class, 'index'])->name('button-list');
 
+    Route::get('liste-des-questions', [App\Http\Controllers\QuestionsController::class, 'index'])->name('questions-list');
+    Route::post('questions-store', [App\Http\Controllers\QuestionsController::class, 'store'])->name('questions.store');
+    Route::get('details sur la question/{questions}', [App\Http\Controllers\QuestionsController::class, 'show'])->name('questions.show');
+    Route::post('modifier le contenu des questions/{questions}', [App\Http\Controllers\QuestionsController::class, 'updateContenu'])->name('questions.contenu');
+    Route::post('modifier le statut des questions/{questions}', [App\Http\Controllers\QuestionsController::class, 'updateStatut'])->name('questions.statut');
+
+    Route::get('liste-des-reponses', [App\Http\Controllers\ReponsesController::class, 'index'])->name('reponses-list');
+    Route::post('reponses-store', [App\Http\Controllers\ReponsesController::class, 'store'])->name('reponses.store');
+    Route::get('details sur la reponse/{reponses}', [App\Http\Controllers\ReponsesController::class, 'show'])->name('reponses.show');
+
     Route::get('liste-des-articles', [App\Http\Controllers\BlogController::class, 'index'])->name('blog-list');
     Route::post('articles-store', [App\Http\Controllers\BlogController::class, 'store'])->name('blog.store');
     Route::get('details-articles/{article}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');

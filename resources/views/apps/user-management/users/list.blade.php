@@ -180,10 +180,7 @@
                                     </div>
                                     <!--end::Card toolbar-->
                                 </div>
-                                <!--end::Card header-->
-                                <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <!--begin::Table-->
                                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                                         <!--begin::Table head-->
                                         <thead>
@@ -205,11 +202,7 @@
                                             </tr>
                                             <!--end::Table row-->
                                         </thead>
-                                        <!--end::Table head-->
-                                        <!--begin::Table body-->
                                         <tbody class="text-gray-600 fw-bold">
-
-                                            <!--begin::Table row-->
                                             @foreach ($users as $user)
                                                 <tr>
                                                     <td>
@@ -233,7 +226,7 @@
                                                                         alt="{{ $user->name }} "
                                                                         class="w-100" />
                                                                 </div>
-                                                                        
+
                                                                     @endif
                                                                 </div>
                                                             </a>
@@ -286,29 +279,19 @@
                                                     <!--end::Action=-->
                                                 </tr>
                                             @endforeach
-                                            <!--end::Table row-->
                                         </tbody>
-                                        <!--end::Table body-->
                                     </table>
-                                    <!--end::Table-->
                                 </div>
-                                <!--end::Card body-->
                             </div>
-                            <!--end::Card-->
                         </div>
-                        <!--end::Container-->
                     </div>
-                    <!--end::Post-->
                 </div>
-                <!--end::Content-->
                 @include('layouts.footer')
             </div>
             <!--end::Wrapper-->
         </div>
         <!--end::Page-->
     </div>
-    <!--end::Root-->
-    <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
         <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
         <span class="svg-icon">
@@ -322,29 +305,14 @@
         </span>
         <!--end::Svg Icon-->
     </div>
-    <!--end::Scrolltop-->
-    <!--end::Main-->
-    <!--begin::Javascript-->
-    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../../../assets/plugins/global/plugins.bundle.js"></script>
     <script src="../../../assets/js/scripts.bundle.js"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="../../../assets/plugins/custom/datatables/datatables.bundle.js"></script>
-    <!--end::Page Vendors Javascript-->
-    <!--begin::Page Custom Javascript(used by this page)-->
     <script src="../../../assets/js/custom/apps/user-management/users/list/table.js"></script>
     <script src="../../../assets/js/custom/apps/user-management/users/list/export-users.js"></script>
     <script src="../../../assets/js/custom/apps/user-management/users/list/add.js"></script>
     <script src="../../../assets/js/custom/intro.js"></script>
-    <!--end::Page Custom Javascript-->
-    <!--end::Javascript-->
-    <!--Begin::Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!--End::Google Tag Manager (noscript) -->
+
 </body>
 <!--end::Body-->
 

@@ -122,7 +122,6 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
 
-
         $user->roles()->sync($request->roles);
         return view('apps/user-management/users/list')->with('users', User::orderBy('id', 'DESC')->get());
     }

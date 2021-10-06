@@ -32,4 +32,9 @@ class Cours extends Model
     {
         return $this->belongsTo(Piliers::class, 'pilierId');
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Questions::class);
+    }
 }
