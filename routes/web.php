@@ -50,6 +50,8 @@ Route::middleware(['auth', 'throttle:60,3'])->group(function () {
     Route::get('liste-des-reponses', [App\Http\Controllers\ReponsesController::class, 'index'])->name('reponses-list');
     Route::post('reponses-store', [App\Http\Controllers\ReponsesController::class, 'store'])->name('reponses.store');
     Route::get('details sur la reponse/{reponses}', [App\Http\Controllers\ReponsesController::class, 'show'])->name('reponses.show');
+    Route::post('modifier le contenu des reponses/{reponses}', [App\Http\Controllers\ReponsesController::class, 'updateReponseContenu'])->name('reponses.contenu');
+    Route::post('modifier le statut des reponses/{reponses}', [App\Http\Controllers\ReponsesController::class, 'updateReponseStatut'])->name('reponses.statut');
 
     Route::get('liste-des-articles', [App\Http\Controllers\BlogController::class, 'index'])->name('blog-list');
     Route::post('articles-store', [App\Http\Controllers\BlogController::class, 'store'])->name('blog.store');

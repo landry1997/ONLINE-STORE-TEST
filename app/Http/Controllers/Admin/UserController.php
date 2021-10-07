@@ -100,12 +100,6 @@ class UserController extends Controller
         return view('apps/user-management/users/view', compact(['user','roles']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user, Role $roles)
     {
         $roles = Role::all();

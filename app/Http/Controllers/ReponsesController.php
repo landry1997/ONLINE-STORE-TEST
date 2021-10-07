@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reponses;
 use App\Models\Questions;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,22 +19,13 @@ class ReponsesController extends Controller
 return view('apps/reponses/list')->with('questions', Questions::all())->with('reponses', Reponses::orderBy('id', 'DESC')->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -53,47 +45,52 @@ return view('apps/reponses/list')->with('questions', Questions::all())->with('re
         return redirect('liste-des-reponses');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reponses  $reponses
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reponses $reponses)
+
+    public function show(Reponses $reponses,User $user,Questions $question)
     {
-        $reponses = Reponses::with(['user','question'])->orderBy('id', 'desc')->get()[0];
-        return view('apps/reponses/view', compact(['reponses']));
+       // $reponses = Reponses::with(['user','question'])->orderBy('id', 'desc')->get()[0];
+        $user = User::all();
+        $question = Questions::all();
+        return view('apps/reponses/view', compact(['reponses','user','question']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reponses  $reponses
-     * @return \Illuminate\Http\Response
-     */
+    public function updateReponseContenu(Request $request, Reponses $reponses)
+    {
+        $request->validate([
+            'contenu' => 'required',
+        ]);
+
+        $reponse = Reponses::find($reponses->id);
+        $reponse->contenu = $request->contenu;
+        $reponse->save();
+        return redirect()->back();
+    }
+
+    public function updateReponseStatut(Request $request, Reponses $reponses)
+    {
+        $request->validate([
+            'statut' => 'required',
+        ]);
+
+        $reponse = Reponses::find($reponses->id);
+        $reponse->statut = $request->statut;
+        $reponse->save();
+        return redirect()->back();
+    }
+
+
     public function edit(Reponses $reponses)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reponses  $reponses
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Reponses $reponses)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reponses  $reponses
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Reponses $reponses)
     {
         //

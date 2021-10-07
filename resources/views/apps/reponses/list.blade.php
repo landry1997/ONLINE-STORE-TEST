@@ -4,8 +4,8 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title><?php echo e(__('Liste des reponses aux questions')); ?> || Adisa </title>
-    <?php echo $__env->make('layouts.meta', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <title>{{__('Liste des reponses aux questions') }} || Adisa </title>
+    @include('layouts.meta')
     <link href="../../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -17,9 +17,9 @@
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
-            <?php echo $__env->make('layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            @include('layouts.sidebar')
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                @include('layouts.header')
                 <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Toolbar-->
                     <div class="toolbar" id="kt_toolbar">
@@ -27,13 +27,13 @@
                             <!--begin::Info-->
                             <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
                                 <!--begin::Title-->
-                                <h1 class="text-dark fw-bolder my-1 fs-2"><?php echo e(__('Liste des reponses')); ?></h1>
+                                <h1 class="text-dark fw-bolder my-1 fs-2">{{__('Liste des reponses') }}</h1>
                                 <ul class="breadcrumb fw-bold fs-base my-1">
                                     <li class="breadcrumb-item text-muted">
-                                        <a href="/home" class="text-muted text-hover-primary"><?php echo e(__('Tableau de bord')); ?></a>
+                                        <a href="/home" class="text-muted text-hover-primary">{{__('Tableau de bord') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item text-muted"><?php echo e(__("Comptes et cours")); ?></li>
-                                    <li class="breadcrumb-item text-muted"><?php echo e(__("Gestion des reponses")); ?></li>
+                                    <li class="breadcrumb-item text-muted">{{__("Comptes et cours") }}</li>
+                                    <li class="breadcrumb-item text-muted">{{__("Gestion des reponses") }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -92,12 +92,14 @@
                                                     <!--begin::Input group-->
                                                     <div class="mb-10">
                                                         <!--begin::Label-->
-                                                        <label class="form-label fs-5 fw-bold mb-3"><?php echo e(__("Createur")); ?>:</label>
+                                                        <label class="form-label fs-5 fw-bold mb-3">{{__("Createur") }}:</label>
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
 																<option></option>
-                                                                
+                                                                {{-- @foreach ($categories as $category)
+                                                                <option value="{{ $category->createur }}">{{ $category->createur }}</option>
+                                                                @endforeach --}}
 
 															</select>
                                                         <!--end::Input-->
@@ -132,17 +134,17 @@
                                                         <!--end::Options-->
                                                     </div>
                                                     <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset"><?php echo e(__("Annuler")); ?></button>
-                                                        <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter"><?php echo e(__("Valider")); ?></button>
+                                                        <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">{{__("Annuler") }}</button>
+                                                        <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">{{__("Valider") }}</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer"><?php echo e(__("creer une reponse")); ?></button>
+                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">{{__("creer une reponse") }}</button>
                                         </div>
                                         <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
                                             <div class="fw-bolder me-5">
-                                                <span class="me-2" data-kt-customer-table-select="selected_count"></span><?php echo e(__("Selectione")); ?></div>
-                                            <button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected"><?php echo e(__("Desactiver ces elements")); ?></button>
+                                                <span class="me-2" data-kt-customer-table-select="selected_count"></span>{{__("Selectione") }}</div>
+                                            <button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">{{__("Desactiver ces elements") }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -155,16 +157,16 @@
                                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                                                     </div>
                                                 </th>
-                                                <th class="min-w-150px"><?php echo e(__("Contenu")); ?></th>
-                                                <th class="min-w-60px"><?php echo e(__("question")); ?></th>
-                                                <th class="min-w-60px"><?php echo e(__("type de reponse")); ?></th>
-                                                <th class="min-w-50px"><?php echo e(__("Statut ")); ?></th>
-                                                <th class="min-w-50px"><?php echo e(__("Createur")); ?></th>
+                                                <th class="min-w-150px">{{__("Contenu") }}</th>
+                                                <th class="min-w-60px">{{__("question") }}</th>
+                                                <th class="min-w-60px">{{__("type de reponse") }}</th>
+                                                <th class="min-w-50px">{{__("Statut ") }}</th>
+                                                <th class="min-w-50px">{{__("Createur") }}</th>
                                                 <th class="text-end min-w-70px">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody class="fw-bold text-gray-600">
-                                            <?php $__currentLoopData = $reponses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reponse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            @foreach ($reponses as $reponse)
                                             <tr>
                                                 <td>
                                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -172,23 +174,23 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="view.html" class="text-gray-800 mb-1"><?php echo e($reponse->contenu); ?></a>
+                                                    <a href="view.html" class="text-gray-800 mb-1">{{ $reponse->contenu }}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="text-gray-800 mb-1"><?php echo e($reponse->question->contenu); ?></a>
+                                                    <a href="#" class="text-gray-800 mb-1">{{ $reponse->question->contenu  }}</a>
                                                 </td>
-                                                <?php if($reponse->reponse == "oui"): ?>
+                                                @if ($reponse->reponse == "oui")
                                                 <td><a href="#" class="text-gray-800 mb-1">Bonne reponse</a></td>
-                                                <?php else: ?>
+                                                @else
                                                 <td><a href="#" class="text-danger mb-1">Mauvaise reponse</a></td>
-                                                <?php endif; ?>
+                                                @endif
 
-                                                <?php if($reponse->statut == "actif"): ?>
+                                                @if ($reponse->statut == "actif")
                                                 <td><a href="#" class="text-gray-800 mb-1">Actif</a></td>
-                                                <?php else: ?>
+                                                @else
                                                 <td><a href="#" class="text-danger mb-1">Desactive</a></td>
-                                                <?php endif; ?>
-                                                <td class="text-gray-800 mb-1"><?php echo e($reponse->user->name); ?></td>
+                                                @endif
+                                                <td class="text-gray-800 mb-1">{{ $reponse->user->name }}</td>
                                                 <!--end::Date=-->
                                                 <!--begin::Action=-->
                                                 <td class="text-end">
@@ -196,14 +198,14 @@
                                                         <i class="fas fa-edit" title="Editer"></i>
                                                         </span>
                                                         <span>
-                                                            <a href="<?php echo e(route("reponses.show", $reponse->id)); ?>">  <i class="fas fa-eye" title="Voir le detail" ></i></a>
+                                                            <a href="{{ route("reponses.show", $reponse->id)}}">  <i class="fas fa-eye" title="Voir le detail" ></i></a>
                                                         </span>
                                                         <span>
                                                             <i class="fas fa-plus" data-bs-toggle="modal" title="Ajouter un element"  data-bs-target="#kt_modal_add_customer"></i>
                                                         </span>
                                                 </td>
                                             </tr>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -211,10 +213,10 @@
                             <div class="modal fade" id="kt_modal_add_customer" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered mw-650px">
                                     <div class="modal-content">
-                                        <form class="form" action="<?php echo e(route('reponses.store')); ?>" method="POST" id="kt_modal_add_customer_form" data-kt-redirect="list.html">
-                                            <?php echo csrf_field(); ?>
+                                        <form class="form" action="{{ route('reponses.store') }}" method="POST" id="kt_modal_add_customer_form" data-kt-redirect="list.html">
+                                            @csrf
                                             <div class="modal-header" id="kt_modal_add_customer_header">
-                                                <h2 class="fw-bolder"><?php echo e(__("creer une reponse")); ?></h2>
+                                                <h2 class="fw-bolder">{{__("creer une reponse") }}</h2>
                                                 <div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
                                                     <span class="svg-icon svg-icon-1">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -229,22 +231,22 @@
                                                 <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll"
                                                     data-kt-scroll-offset="300px">
                                                     <div class="fv-row mb-7">
-                                                        <label class="required fs-6 fw-bold mb-2"><?php echo e(__("Contenu")); ?></label>
+                                                        <label class="required fs-6 fw-bold mb-2">{{__("Contenu") }}</label>
                                                         <input type="text" class="form-control form-control-solid" placeholder="" name="contenu"/>
 
-                                                        <label class="required fs-6 fw-bold mb-2"><?php echo e(__("Question")); ?></label>
+                                                        <label class="required fs-6 fw-bold mb-2">{{__("Question") }}</label>
                                                            <!--begin::Input-->
-                                                           <select class="form-select form-select-solid fw-bolder" name="questionId" data-kt-select2="true" data-placeholder="<?php echo e(__("Choisir un cours")); ?>" data-allow-clear="true">
+                                                           <select class="form-select form-select-solid fw-bolder" name="questionId" data-kt-select2="true" data-placeholder="{{__("Choisir un cours") }}" data-allow-clear="true">
                                                             <option></option>
-                                                            <?php $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($question->id); ?>"><?php echo e($question->contenu); ?></option>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            @foreach ($questions as $question)
+                                                            <option value="{{ $question->id }}">{{ $question->contenu}}</option>
+                                                            @endforeach
                                                         </select>
                                                     <!--end::Input-->
 
-                                                    <label class="required fs-6 fw-bold mb-2"><?php echo e(__("est-ce une reponse juste?")); ?></label>
+                                                    <label class="required fs-6 fw-bold mb-2">{{__("est-ce une reponse juste?") }}</label>
                                                            <!--begin::Input-->
-                                                           <select class="form-select form-select-solid fw-bolder" name="reponse" data-kt-select2="true" data-placeholder="<?php echo e(__("Choisir un cours")); ?>" data-allow-clear="true">
+                                                           <select class="form-select form-select-solid fw-bolder" name="reponse" data-kt-select2="true" data-placeholder="{{__("Choisir un cours") }}" data-allow-clear="true">
                                                             <option></option>
                                                             <option value="oui">OUI</option>
                                                             <option value="non">NON</option>
@@ -255,11 +257,10 @@
                                                 </div>
                                             </div>
                                             <div class="text-center pt-15">
-                                                <button type="reset" class="btn btn-light me-3" style="margin-bottom: 25px;" data-kt-users-modal-action="cancel"><?php echo e(__('Annuler')); ?></button>
+                                                <button type="reset" class="btn btn-light me-3" style="margin-bottom: 25px;" data-kt-users-modal-action="cancel">{{__('Annuler') }}</button>
                                                 <button type="submit" class="btn btn-dark" style="margin-bottom: 25px;" data-kt-users-modal-action="submit">
-                                                    <span class="indicator-label"><?php echo e(__('Confirmer')); ?></span>
-                                                    <span class="indicator-progress"><?php echo e(__('Patientez ...')); ?>
-
+                                                    <span class="indicator-label">{{__('Confirmer') }}</span>
+                                                    <span class="indicator-progress">{{ __('Patientez ...') }}
                                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                                 </button>
                                             </div></button>
@@ -272,7 +273,7 @@
                     </div>
                     <!--end::Post-->
                 </div>
-                <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                @include('layouts.footer')
             </div>
         </div>
     </div>
@@ -310,4 +311,3 @@
     });
 </script>
 </html>
-<?php /**PATH /Users/smartcode/Downloads/ADISA-BO/resources/views/apps/reponses/list.blade.php ENDPATH**/ ?>
